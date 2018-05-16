@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+	<h1>Edit</h1>
+	
+	<form method="POST" class="post-form">{% csrf_token %}
+
+{{ form |crispy }}
+
+	
+<span style="float:right"><button type="submit" class="save btn btn-default">Сохранить</button></span><span style="float:right; padding:10px"><a href="/"> &#60;&#60;&#60;Back to list   </a></span>
+	</form>
+{% endblock %}

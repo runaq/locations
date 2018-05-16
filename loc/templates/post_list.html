@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+      
+
+<table>
+<thead>
+<tr><th colspan=6><a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span> Add</a></th>
+<th><input float="right" type="search" name="q" placeholder="Search in table"></th>
+</tr>
+</thead>
+  <tbody>
+<tr><td>First name</td> <td>Last name</td> <td>Address</td> <td>Lat</td> <td>Lon</td>  <td>Phone</td> </tr> 
+
+{% for post in posts %}
+<tr><td>{{ post.first_name }}</td><td>{{ post.last_name }}</td><td>{{ post.address }}</td><td>{{ post.lat }}</td><td>{{ post.lot }}</td><td>{{ post.phone_number }}</td><td><a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a></td></tr>
+{% endfor %}
+
+</table>
+{% endblock content %}
+
+
+
+
